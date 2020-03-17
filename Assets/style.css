@@ -1,0 +1,19 @@
+#row {
+    text-align: center;
+    background-color: aquamarine;
+    color: gray;
+    font-family: cursive;
+    width: 100%;
+
+}
+#timer {
+    font-family: cursive;
+    text-align: center;
+    color: black;
+}
+
+#questions {
+    padding: 20px;
+    margin-top: 40px;
+    font-family: cursive;
+}

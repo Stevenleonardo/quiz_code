@@ -2,7 +2,7 @@
 var timerEl = document.getElementById("timer")
 var questionEl = document.getElementById("questions")
 var startButton = document.getElementById("button")
-startButton.textContent = "Answer the questions before the timer runs out!"
+startButton.textContent = "Start!"
 var counter;
 
 //Create area for instructions
