@@ -27,7 +27,7 @@ inCorrectAlert.textContent = "incorrect"
 //setup
 var quiz = {
     //timer
-    time: 10,
+    time: 15,
     //start at first question
     questionindex: 0,
     //number of correct answer
@@ -42,12 +42,12 @@ var quiz = {
         {
             q: "Is JQuery one of the 3 languages of the web?",
             a: ["True", "false"],
-            c: 1,
+            c: 0,
         },
         {
-            q: "Console.log is how developers check there code",
+            q: ".log is how developers check there code",
             a: ["True", "false"],
-            c: 0,
+            c: 1,
         }
     ],
 
@@ -58,7 +58,7 @@ var quiz = {
             //correct score
         quiz.correct = 0;
         //the amount of secs on our timer
-        quiz.time = 10;
+        quiz.time = 15;
         //runs the function
         quiz.timeStart();
         // runs the function
@@ -121,7 +121,7 @@ var quiz = {
         timerEl.textContent = quiz.time + "seconds left";
         if (quiz.time < 1) {
             //resets the time to 10
-            quiz.time = 10;
+            quiz.time = 15;
             //moves onto the next question
             quiz.questionindex++
             //runs the function 
@@ -137,7 +137,6 @@ var quiz = {
             if (e.target.matches("data") == quiz.questions[quiz.questionindex].c) {
                 questionEl.appendChild(correctAlert);
                 quiz.questionindex++;
-                quiz.correct++;
                 quiz.nextQuestion();
             }
             else {
