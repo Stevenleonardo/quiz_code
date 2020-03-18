@@ -67,6 +67,7 @@ var quiz = {
     },
 
     nextQuestion: function () {
+        this.clearAlerts()
         if (quiz.questionindex < quiz.questions.length) {
             // clears the question area
             questionDiv.innerHTML = "";
@@ -132,7 +133,7 @@ var quiz = {
         console.log(this.getAnswer);
         //placing a conditional with event.target to search for the user input
         if (e.target.matches("li")) {
-                // set up the user answer id with the correct answer index
+                // set up the user answer id with the correct answer
             if (e.target.matches("data") == quiz.questions[quiz.questionindex].c) {
                 questionEl.appendChild(correctAlert);
                 quiz.questionindex++;
@@ -146,6 +147,15 @@ var quiz = {
                 quiz.nextQuestion();
             }
         }
+    },
+    // we need to clear the alert after each intial response
+    clearAlerts: function(){
+        //run a settimeout so it can clear the alerts after set time placed
+        setTimeout(function(){
+            correctAlert.remove();
+            inCorrectAlert.remove();
+        },1000
+        )
     }
 }
 console.log(quiz.startQuiz)
