@@ -5,23 +5,20 @@ var startButton = document.getElementById("button")
 startButton.textContent = "Start!"
 var counter;
 
-//Create area for instructions
-var instructions = document.createElement("p");
-instructions.setAttribute("class", "instructions");
-
 //Create area for questions
 var questionDiv = document.createElement("div");
 questionDiv.setAttribute("id", "question-div");
 
 //Create area for answers
 var answers = document.createElement("ul");
-answers.setAttribute("id", "answers");
 
 //alerts
 var correctAlert = document.createElement("div");
+//Give our correctalert a class and green color
 correctAlert.setAttribute("class", "alert alert-success");
 correctAlert.textContent = "Correct"
-var inCorrectAlert = document.createElement("div");
+var inCorrectAlert = document.createElement("div"); 
+//Give our incorrectalert a class and color of red
 inCorrectAlert.setAttribute("class", "alert alert-danger")
 inCorrectAlert.textContent = "incorrect"
 //setup
@@ -82,6 +79,7 @@ var quiz = {
             // for loop for our answers
             for (var index = 0; index < quiz.questions[quiz.questionindex].a.length; index++) {
                 var currentAnswer = quiz.questions[quiz.questionindex].a[index];
+                console.log(currentAnswer)
                 var answerLi = document.createElement("li")
                 // will add the text to the div
                 answerLi.textContent = currentAnswer
@@ -155,7 +153,7 @@ var quiz = {
             inCorrectAlert.remove();
         },1000
         )
-    }
+    },
 }
 console.log(quiz.startQuiz)
 startButton.addEventListener("click", quiz.startQuiz);
