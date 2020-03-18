@@ -72,22 +72,26 @@ var quiz = {
             questionDiv.innerHTML = "";
             //clears the answer area
             answers.innerHTML = "";
+            //place in a variable to easily access
             var currentQuestion = quiz.questions[quiz.questionindex].q;
-            questionDiv.innerHTML = "<h3>" + currentQuestion + "<h3>"
-            var content = document.getElementById("questions");
-            content.appendChild(questionDiv);
+            //will show the current question on the page in a h2 header
+            questionDiv.innerHTML = "<h2>" + currentQuestion + "<h2>"
+            //Will place my questions into div
+            questionEl.appendChild(questionDiv);
             // for loop for our answers
             for (var index = 0; index < quiz.questions[quiz.questionindex].a.length; index++) {
                 var currentAnswer = quiz.questions[quiz.questionindex].a[index];
                 var answerLi = document.createElement("li")
                 // will add the text to the div
                 answerLi.textContent = currentAnswer
+                //give a class
                 answerLi.setAttribute("class", "answerli")
+                // set index
                 answerLi.setAttribute("data", index)
                 //will add the answers onto the page
                 answers.appendChild(answerLi)
             }
-            content.appendChild(answers);
+            questionEl.appendChild(answers);
         }
         else {
             //emptys our questions area
@@ -125,13 +129,12 @@ var quiz = {
         }
     },
     getAnswer: function (e) {
+        console.log(this.getAnswer);
         //placing a conditional with event.target to search for the user input
         if (e.target.matches("li")) {
-            e.target.getattribute("data");
-
-            if (e.target.getattribute("data") == quiz.questions[quiz.questionindex].c) {
+                // set up the user answer id with the correct answer index
+            if (e.target.matches("data") == quiz.questions[quiz.questionindex].c) {
                 questionEl.appendChild(correctAlert);
-                quiz.time = 10;
                 quiz.questionindex++;
                 quiz.correct++;
                 quiz.nextQuestion();
@@ -147,4 +150,4 @@ var quiz = {
 }
 console.log(quiz.startQuiz)
 startButton.addEventListener("click", quiz.startQuiz);
-answerLi.addEventListener("click", quiz.getAnswer);
+answers.addEventListener("click", quiz.getAnswer);
